@@ -22,3 +22,17 @@ const fruits: string[] = ['apple', 'banana', 'grape'];
 
 //tuple
 const book: [string, number, boolean] = ['business', 1500, false]
+
+//enum
+enum coffeeSize {
+    short = 'short',
+    tall = 'tall',
+    grande = 'grande',
+    venti = 'venti'
+}
+
+
+const coffee = {
+    hot: true,
+    size: 'Short'
+}
