@@ -19,3 +19,6 @@ const person: {
 
 //array
 const fruits: string[] = ['apple', 'banana', 'grape'];
+
+//tuple
+const book: [string, number, boolean] = ['business', 1500, false]
