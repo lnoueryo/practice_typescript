@@ -16,3 +16,6 @@ const person: {
     name: 'jack',
     age: 21
 }
+
+//array
+const fruits: string[] = ['apple', 'banana', 'grape'];
