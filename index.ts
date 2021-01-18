@@ -56,5 +56,5 @@ const cloth: {
     size: 'small'
 }
 
-// type ClothSize = 'small' | 'medium' | 'large';
-// let newClothSize: ClothSize = 'large'
+type ClothSize = 'small' | 'medium' | 'large';
+let newClothSize: ClothSize = 'large'
