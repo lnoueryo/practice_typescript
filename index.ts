@@ -62,3 +62,7 @@ let newClothSize: ClothSize = 'large'
 function add(num1: number, num2: number): number{
     return num1 + num2;
 }
+
+function sayHell(): void{
+    console.log('sayHello')
+}
