@@ -21,7 +21,7 @@ const person: {
 const fruits: string[] = ['apple', 'banana', 'grape'];
 
 //tuple
-const book: [string, number, boolean] = ['business', 1500, false]
+const book: [string, number, boolean] = ['business', 1500, false];
 
 //enum
 enum coffeeSize {
@@ -31,8 +31,14 @@ enum coffeeSize {
     venti = 'venti'
 }
 
-
 const coffee = {
     hot: true,
     size: 'Short'
 }
+
+let anything: any = true;
+anything = 'hello';
+anything = ['hello', 33, true];
+anything.hello = 'fsdaf';
+let banana = anything;
+banana = anything;
