@@ -42,3 +42,6 @@ anything = ['hello', 33, true];
 anything.hello = 'fsdaf';
 let banana = anything;
 banana = anything;
+
+let unionType: number | string = 10;
+let unionTypes: (number | string)[] = [10, 'hello'];
