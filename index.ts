@@ -45,3 +45,16 @@ banana = anything;
 
 let unionType: number | string = 10;
 let unionTypes: (number | string)[] = [10, 'hello'];
+
+const apple = 'apple'
+let bool: true = true;
+let clothSize: 'small' | 'medium' | 'large' = 'large'
+// enumの場合
+const cloth: {
+    size: 'small' | 'medium' | 'large'
+} = {
+    size: 'small'
+}
+
+// type ClothSize = 'small' | 'medium' | 'large';
+// let newClothSize: ClothSize = 'large'
