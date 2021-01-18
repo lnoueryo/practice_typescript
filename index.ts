@@ -74,3 +74,12 @@ const theOtherAdd: (n1: number, n2: number) => number = function (num1: number, 
 
 const doubleNumber = (number: number):number => number * 2;//アロー関数
 const doubleNumber2: (num: number) => number = number => number * 2;//アロー関数
+
+function doubleAndHandle(num: number, callback: (num: number) => number): void {
+    const doubleNum = callback(num * 2)
+    console.log(num * 2);
+}
+
+doubleAndHandle(21, doubleNum => {
+    return doubleNum;
+})
