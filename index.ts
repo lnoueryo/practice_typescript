@@ -66,3 +66,11 @@ function add(num1: number, num2: number): number{
 function sayHell(): void{
     console.log('sayHello')
 }
+
+const anotherAdd: (n1: number, n2: number) => number = add;
+const theOtherAdd: (n1: number, n2: number) => number = function (num1: number, num2: number): number{
+    return num1 + num2;
+};//無名関数
+
+const doubleNumber = (number: number):number => number * 2;//アロー関数
+const doubleNumber2: (num: number) => number = number => number * 2;//アロー関数
