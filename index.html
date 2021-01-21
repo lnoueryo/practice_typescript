@@ -1,0 +1,73 @@
+<body>
+    <section>
+        <div class="clock3">
+        <div class="clock">
+            <div class="lineHour"></div>
+            <div class="lineMin"></div>
+            <div class="lineSec"></div>
+            <div class="clock2"></div>
+        </div></div>
+    </section>
+    <script src="clock.js"></script>
+</body>
+<style>
+        body {
+        background-color: rgb(0, 0, 0);
+    }
+    .clock {
+        border-radius: 50%;
+        border: 3px solid white;
+        width: 400px;
+        height: 400px;
+        background: rgba(11,49,109,0.8);
+        position: relative;
+    }
+    .clock .clock2 {
+        display: inline-block;
+        border-radius: 50%;
+        border: 3px solid white;
+        width: 10px;
+        height: 10px;
+        background: white;
+        position: relative;
+        /* margin: 192px; */
+        top: calc(50% - 8px);
+        left: calc(50% - 8px);
+    }
+    .clock3 {
+        /* background-color: rgb(192, 192, 192, 0.1); */
+        border-radius: 50%;
+        width: 405px;
+        height: 405px;
+        position: relative;
+    }
+    .lineHour {
+        width: 7px;
+        height: 150px;
+        background: white;
+        position: absolute;
+        top: calc(50% - 150px);
+        left: calc(50% - 5px);
+        transform-origin: bottom;
+    }
+
+    .lineMin {
+        width: 4px;
+        height: 200px;
+        background: white;
+        position: absolute;
+        top: calc(50% - 200px);
+        left: calc(50% - 2px);
+        transform-origin: bottom;
+    }
+
+    .lineSec {
+        width: 2px;
+        height: 200px;
+        background: #cccccc;
+        position: absolute;
+        top: calc(50% - 200px);
+        left: calc(50% - 1px);
+        transform-origin: bottom;
+    }
+</style>

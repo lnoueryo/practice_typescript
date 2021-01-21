@@ -36,6 +36,7 @@ const coffee = {
     size: 'Short'
 }
 
+//any
 let anything: any = true;
 anything = 'hello';
 anything = ['hello', 33, true];
@@ -43,8 +44,10 @@ anything.hello = 'fsdaf';
 let banana = anything;
 banana = anything;
 
+//union
 let unionType: number | string = 10;
 let unionTypes: (number | string)[] = [10, 'hello'];
+
 
 const apple = 'apple'
 let bool: true = true;
