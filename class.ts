@@ -1,19 +1,28 @@
 class Person {
-    name: string;
-    constructor(initName: string){
+    public name: string;
+    private age: number;
+    constructor(initName: string, initAge: number){
         this.name =  initName;
+        this.age =  initAge;
     }
 
-    greeting(this:{name: string}){
-        console.log(`Hello! My name is ${this.name}`)
+    incrementAge(){
+        this.age +=1;
+    }
+
+    greeting(this: Person){
+        console.log(`Hello! My name is ${this.name}. I am ${this.age} years old`)
     }
 }
+let person2: Person;
+const quill = new Person('quill', 38);
+quill.incrementAge();
+quill.greeting();
 
-const quill = new Person('quill');
-quill.greeting()
+// const anotherQuill = {
+//     name: 'ore',
+//     greeting(){},
+//     anotherGreeting: quill.greeting
+// }
+// anotherQuill.anotherGreeting();
 
-const anotherQuill = {
-    name: 'ore',
-    anotherGreeting: quill.greeting
-}
-anotherQuill.anotherGreeting();
