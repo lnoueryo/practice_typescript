@@ -1,9 +1,6 @@
 class Person {
-    public name: string;
-    private age: number;
-    constructor(initName: string, initAge: number){
-        this.name =  initName;
-        this.age =  initAge;
+    constructor(public name: string, private age: number){
+
     }
 
     incrementAge(){
