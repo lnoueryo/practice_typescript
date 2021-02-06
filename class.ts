@@ -1,4 +1,9 @@
-class Person {
+abstract class Person {
+    static species = 'Homo sapiens';
+    static isAdult(age: number){
+        if (age > 17) return true;
+        return false;
+    }
     constructor(protected readonly name: string, protected age: number){
 
     }
@@ -10,9 +15,13 @@ class Person {
     greeting(this: Person){
         console.log(`Hello! My name is ${this.name}. I am ${this.age} years old`)
     }
+    abstract explainJob(): void
 }
 
 class Teacher extends Person{
+    explainJob(){
+        console.log(`I am a teacher. I teach ${this.subject}`);
+    }
     get subject(): string{
         if(!this._subject){
             throw new Error('There is no subject')
@@ -33,7 +42,5 @@ class Teacher extends Person{
     }
 }
 
-const teacher = new Teacher('ryo', 32, 'math');
-console.log(teacher.subject)
-teacher.subject = '';
-teacher.greeting();
+const teacher = new Teacher('Quill', 30, 'Math')
+teacher.explainJob()
