@@ -1,0 +1,105 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="../../_common/css/style.css" rel="stylesheet">
+    <style>
+    main section {
+        text-align: center;
+    }
+    .position {
+        font-size: 1.5rem;
+        color: #ed8a29;
+    }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <div class="container">
+            <h1>あなたはいまどこ？</h1>
+            <h2>位置情報をページに表示する</h2>
+            </div><!-- /.container -->
+            </header>
+            <main>
+            <div class="container">
+            <section>
+                <button @click="on">hello</button>
+                <p>あなたはいま</p>
+                <p id="loc" class="position">緯度：{{latitude}}　経度：{{longitude}}</p>
+                <p>{{ address }}</p>
+                <p>にいます。ちなみに精度は半径 <span id="accuracy" class="position">{{ accuracy }}</span> mです。</p>
+            </section>
+            </div><!-- /.container -->
+            </main>
+            <footer>
+            <div class="container">
+            <p>JavaScript Samples</p>
+            </div><!-- /.container -->
+            </footer>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+<script>
+
+var app = new Vue({
+    el: '#app',
+    data() {
+        return {
+            latitude: 0,
+            longitude: 0,
+            accuracy: 0,
+            address: '',
+        }
+    },
+    created() {
+        navigator.geolocation.getCurrentPosition(this.success,this.error)
+    },
+    methods: {
+        success(position){
+            let coords = position.coords;
+            this.latitude = coords.latitude;
+            this.longitude = coords.longitude;
+            this.accuracy = coords.accuracy;
+            const xmlHttpRequest = new XMLHttpRequest();
+            const that = this;
+            xmlHttpRequest.onreadystatechange = function()
+            {
+                if( this.readyState == 4 && this.status == 200 )
+                {
+                    if( this.response )
+                    {
+                        console.log(xmlHttpRequest)
+                        that.address = this.response.results.lv01Nm
+                    }
+                }
+            }
+            xmlHttpRequest.open( 'GET', 'https://mreversegeocoder.gsi.go.jp/reverse-geocoder/LonLatToAddress?lat=' + coords.latitude + '&lon=' + coords.longitude, true );
+            xmlHttpRequest.responseType = 'json';
+            xmlHttpRequest.send( null );
+        },
+        error(error) {
+            alert('位置情報の取得に失敗しました。エラーコード：' + error.code);
+        },
+        on(){
+            var xmlHttpRequest = new XMLHttpRequest();
+            let that = this;
+            xmlHttpRequest.onreadystatechange = function()
+            {
+                if( this.readyState == 4 && this.status == 200 )
+                {
+                    if( this.response )
+                    {
+                        console.log(xmlHttpRequest)
+                        that.address = this.response.results.lv01Nm
+                    }
+                }
+            }
+            xmlHttpRequest.open( 'GET', 'https://mreversegeocoder.gsi.go.jp/reverse-geocoder/LonLatToAddress?lat=43.0686718333333&lon=141.351173694444', true );
+            xmlHttpRequest.responseType = 'json';
+            xmlHttpRequest.send( null );
+        }
+    }
+})
+</script>
+</body>
+</html>
